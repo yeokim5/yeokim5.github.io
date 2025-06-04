@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Viewer</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            text-decoration: none;
+            color: #333;
+        }
+        .back-link:hover {
+            color: #666;
+        }
+        #markdown-content {
+            margin-top: 20px;
+        }
+        #markdown-content h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        #markdown-content h2 {
+            color: #444;
+            margin-top: 30px;
+        }
+        #markdown-content p {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <a href="javascript:history.back()" class="back-link">← Back</a>
+    <div id="markdown-content">
+        <!-- Markdown content will be inserted here -->
+    </div>
+    <script src="js/markdown-viewer.js"></script>
+</body>
+</html> 
