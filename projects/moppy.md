@@ -1,3 +1,0 @@
-# Moppy Project
-
-Made moppy. 
