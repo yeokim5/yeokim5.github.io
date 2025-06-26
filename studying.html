@@ -52,6 +52,19 @@
             color: #666;
             margin-top: 5px;
         }
+        .pdf-options {
+            margin-top: 10px;
+        }
+        .pdf-options a {
+            display: inline-block;
+            margin-right: 15px;
+            font-size: 0.9em;
+            color: #666;
+            text-decoration: underline;
+        }
+        .pdf-options a:hover {
+            color: #0066cc;
+        }
     </style>
 </head>
 <body>
@@ -60,12 +73,12 @@
         <h1>My Studies</h1>
         <ul class="study-list">
             <li>
-                <a href="viewer.html?file=studying/25-06-05.md">25-06-05 Review</a>
-                <div class="study-description">Description of the study topic</div>
-            </li>
-            <li>
-                <a href="viewer.html?file=studying/25-06-04.md">25-06-04 Review</a>
-                <div class="study-description">Description of the study topic</div>
+                <a href="pdf-viewer.html?file=studying/supervised_unsupervised.pdf">Supervised vs Unsupervised Learning</a>
+                <div class="study-description">Learning supervised and unsupervised learning, connect with modern SOTA models</div>
+                <div class="pdf-options">
+                    <a href="studying/supervised_unsupervised.pdf" target="_blank">Open PDF directly</a>
+                    <a href="studying/supervised_unsupervised.pdf" download>Download PDF</a>
+                </div>
             </li>
         </ul>
     </article>
