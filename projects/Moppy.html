@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moppy - The "Find My Stuff" Robot</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>"
+    />
+    <style>
+      body {
+        line-height: 1.6;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        color: #333;
+        background: #fff;
+      }
+
+      .back-link {
+        display: inline-block;
+        margin-bottom: 20px;
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+      }
+      .back-link:hover {
+        color: #666;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        color: #2c3e50;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        color: #34495e;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 10px;
+      }
+
+      h3 {
+        font-size: 1.3rem;
+        margin-top: 30px;
+        margin-bottom: 15px;
+        color: #2c3e50;
+      }
+
+      p {
+        margin-bottom: 16px;
+      }
+
+      ul {
+        margin-bottom: 16px;
+        padding-left: 20px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+        color: #7f8c8d;
+        margin-bottom: 30px;
+      }
+
+      .tech-stack {
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 5px;
+        margin: 20px 0;
+        font-style: italic;
+      }
+
+      .status-badge {
+        display: inline-block;
+        background: #ffc107;
+        color: #333;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin-left: 10px;
+      }
+
+      .video-container {
+        position: relative;
+        width: 100%;
+        margin: 20px 0;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .video-container iframe {
+        display: block;
+        border-radius: 8px;
+      }
+
+      code {
+        background: #f4f4f4;
+        padding: 2px 4px;
+        border-radius: 3px;
+        font-family: "Courier New", monospace;
+      }
+
+      strong {
+        color: #2c3e50;
+      }
+
+      .feature-box {
+        background: #e8f4fd;
+        border-left: 4px solid #3498db;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 0 5px 5px 0;
+      }
+
+      .tech-section {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="../projects.html" class="back-link">← Back</a>
+    <h1>Moppy</h1>
+    <p class="subtitle">
+      The "Find My Stuff" Robot: An Autonomous Home Assistant with Semantic
+      Memory
+    </p>
+
+    <div class="tech-stack">
+      <strong>Tech Stack:</strong> ROS 2 | SLAM | Computer Vision | YOLOv11 |
+      Docker | MLOps | Raspberry Pi | RPLidar A1
+    </div>
+
+    <h2>Demo Videos</h2>
+    <div class="video-container">
+      <iframe
+        width="100%"
+        height="400"
+        src="https://www.youtube.com/embed/xeASxVbe2gw"
+        title="Moppy Driving Demo"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      >
+      </iframe>
+      <p
+        style="
+          text-align: center;
+          margin-top: 10px;
+          font-style: italic;
+          color: #666;
+        "
+      >
+        Moppy Autonomous Navigation Demo
+      </p>
+    </div>
+
+    <div style="text-align: center; margin: 20px 0">
+      <a href="https://ibb.co/KxcMF0Mc"
+        ><img
+          src="https://i.ibb.co/F4kSgxSk/image-1752339156-png-rf-485091b40e3ca6a226cf74bf057b5df2.jpg"
+          alt="image-1752339156-png-rf-485091b40e3ca6a226cf74bf057b5df2"
+          border="0"
+      /></a>
+      <p style="margin-top: 10px; font-style: italic; color: #666">
+        Custom training dataset for wallet detection
+      </p>
+    </div>
+
+    <div class="video-container">
+      <iframe
+        width="100%"
+        height="400"
+        src="https://www.youtube.com/embed/NiFgSYG-uSY"
+        title="Wallet Detection Model Demo"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      >
+      </iframe>
+      <p
+        style="
+          text-align: center;
+          margin-top: 10px;
+          font-style: italic;
+          color: #666;
+        "
+      >
+        Custom Wallet Detection Model in Action
+      </p>
+    </div>
+    <h2>Project Overview</h2>
+    <p>
+      Moppy is an autonomous robot designed to solve the everyday problem of
+      losing important items like keys, wallets, or the TV remote. This
+      intelligent home assistant navigates your space and maintains a semantic
+      memory of your belongings' locations.
+    </p>
+
+    <div class="feature-box">
+      <h3>🎯 The Problem</h3>
+      <p>
+        We all waste precious time searching for everyday items like keys,
+        wallets, or the TV remote. This common frustration can disrupt our daily
+        routines.
+      </p>
+    </div>
+
+    <div class="feature-box">
+      <h3>💡 The Solution</h3>
+      <p>
+        An autonomous robot that navigates your home and keeps track of your
+        important belongings with two primary features:
+      </p>
+      <ul>
+        <li>
+          <strong>Active Search:</strong> Command the robot "Find my wallet!"
+          and it will patrol your home, visually identify the item, and alert
+          you to its location.
+        </li>
+        <li>
+          <strong>Passive Recall:</strong> As the robot patrols, it builds a
+          "semantic map" logging the last known location and time for each item.
+          Ask "Where did you last see my keys?" and get an instant response.
+        </li>
+      </ul>
+    </div>
+
+    <h2>How It Works: The Technology Stack</h2>
+    <p>
+      This system intelligently fuses data from two key sensors to understand
+      what it's seeing and where it's seeing it.
+    </p>
+
+    <div class="tech-section">
+      <h3>1. The 'Where': SLAM and Localization</h3>
+      <p>
+        The robot uses a <strong>RPLidar A1 laser scanner</strong> to perform
+        Simultaneous Localization and Mapping (SLAM). This process builds a
+        highly accurate 2D map of your home's layout. Once the map is created,
+        the SLAM system allows the robot to know its precise coordinates at all
+        times, providing the foundational "where" for every observation it
+        makes.
+      </p>
+    </div>
+
+    <div class="tech-section">
+      <h3>2. The 'What': Custom AI Vision</h3>
+      <p>
+        A <strong>Raspberry Pi camera</strong> provides the robot's vision. This
+        feed is processed by a lightweight
+        <strong>YOLOv11 object detection model</strong> trained on a custom
+        dataset of your specific items. This means the robot isn't just looking
+        for a generic "wallet," but for your unique wallet, keys, or headphones.
+      </p>
+    </div>
+
+    <div class="tech-section">
+      <h3>3. The 'Memory': Sensor Fusion and the Semantic Map</h3>
+      <p>
+        This is the core of the robot's intelligence. A custom
+        <strong>ROS 2 node</strong> acts as the brain, performing sensor fusion:
+      </p>
+      <ul>
+        <li>It subscribes to the object data from the camera (the what)</li>
+        <li>
+          It subscribes to the robot's precise position from the SLAM system
+          (the where)
+        </li>
+        <li>
+          When the camera detects a tracked object, the node instantly combines
+          these two data streams
+        </li>
+        <li>
+          It logs the object's identity and its exact (x, y) coordinates onto
+          the map, creating a rich semantic map—a persistent database of where
+          your items were last seen
+        </li>
+      </ul>
+    </div>
+
+    <h2>Professional Development: An MLOps-Driven Workflow</h2>
+    <p>
+      This project was developed using a professional MLOps pipeline to ensure
+      the system is robust, reproducible, and easy to update.
+    </p>
+
+    <ul>
+      <li>
+        <strong>Containerization:</strong> The entire ROS 2 and ML environment
+        runs in Docker, ensuring it works consistently anywhere.
+      </li>
+      <li>
+        <strong>Data & Model Versioning:</strong> The custom image dataset is
+        versioned with DVC (Data Version Control), and experiments are tracked
+        with MLflow. This provides a rigorous history of every model trained.
+      </li>
+      <li>
+        <strong>Automation:</strong> A Makefile automates the entire ML
+        lifecycle, from training and evaluation to converting the final PyTorch
+        model for deployment.
+      </li>
+      <li>
+        <strong>Edge Optimization:</strong> For maximum performance on the
+        Raspberry Pi, the final model is optimized and deployed using the NCNN
+        inference engine, ensuring fast, real-time detection.
+      </li>
+    </ul>
+
+    <h2>Technologies Used</h2>
+    <ul>
+      <li><strong>Robotics:</strong> ROS 2, RPLidar A1, Raspberry Pi</li>
+      <li>
+        <strong>Computer Vision:</strong> YOLOv11, Custom Object Detection
+      </li>
+      <li>
+        <strong>SLAM & Navigation:</strong> Simultaneous Localization and
+        Mapping
+      </li>
+      <li><strong>MLOps:</strong> Docker, DVC, MLflow, Makefile</li>
+      <li><strong>Edge Computing:</strong> NCNN Inference Engine, PyTorch</li>
+    </ul>
+
+    <h2>Current Status</h2>
+    <p>
+      <strong>Project Status:</strong> Currently in progress - This is the
+      overview idea and the project is actively being developed. The core
+      concept and technology stack have been defined, and development is ongoing
+      to bring this autonomous home assistant to life.
+    </p>
+  </body>
+</html>
