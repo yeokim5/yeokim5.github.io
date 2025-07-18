@@ -3,20 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⭐</text></svg>">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💡</text></svg>"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <style>
       body {
-        font-family: 'Merriweather', serif;
+        font-family: "Merriweather", serif;
         line-height: 1.6;
         max-width: 800px;
         margin: 0 auto;
         padding: 20px;
       }
       .back-link {
-        font-family: 'Raleway', sans-serif;
+        font-family: "Raleway", sans-serif;
         display: inline-block;
         margin-bottom: 20px;
         text-decoration: none;
@@ -26,42 +32,181 @@
         color: #666;
       }
       h1 {
-        font-family: 'Raleway', sans-serif;
+        font-family: "Raleway", sans-serif;
       }
-      .thoughts-list {
+      h2,
+      .content-title {
+        font-family: "Raleway", sans-serif;
+      }
+      .content-back-link {
+        font-family: "Raleway", sans-serif;
+      }
+      .thought-list {
         list-style: none;
         padding: 0;
       }
-      .thoughts-list li {
+      .thought-list li {
         margin-bottom: 20px;
         padding: 15px;
         border: 1px solid #eee;
         border-radius: 5px;
         transition: all 0.3s ease;
       }
-      .thoughts-list li:hover {
+      .thought-list li:hover {
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       }
-      .thoughts-list a {
-        font-family: 'Raleway', sans-serif;
+      .thought-list a {
+        font-family: "Raleway", sans-serif;
         text-decoration: none;
         color: #0066cc;
         font-size: 1.1em;
         font-weight: bold;
+        cursor: pointer;
       }
-      .thought-date {
+      .thought-description {
         color: #666;
-        font-size: 0.9em;
         margin-top: 5px;
+      }
+      /* Full screen content view styles */
+      .content-view {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: white;
+        z-index: 1000;
+        overflow-y: auto;
+      }
+      .content-header {
+        background-color: white;
+        padding: 20px;
+        position: sticky;
+        top: 0;
+        z-index: 1001;
+      }
+      .content-back-link {
+        font-family: "Raleway", sans-serif;
+        display: inline-block;
+        margin-bottom: 0;
+        text-decoration: none;
+        color: #333;
+      }
+      .content-back-link:hover {
+        color: #666;
+      }
+      .content-title {
+        display: none;
+      }
+      .content-body {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+        font-family: "Merriweather", serif !important;
+      }
+      /* Hide main content when showing document */
+      .hidden {
+        display: none;
+      }
+      /* Responsive design */
+      @media (max-width: 768px) {
+        body {
+          padding: 15px;
+        }
+        .content-body {
+          padding: 15px;
+        }
+        .content-header {
+          padding: 15px;
+        }
       }
     </style>
   </head>
   <body>
-    <a href="index.html" class="back-link">← Back to Home</a>
-    <article>
-      <h1>My Thoughts</h1>
-      <ul class="thoughts-list">
-      </ul>
-    </article>
+    <div id="main-content">
+      <a href="index.html" class="back-link">← Back to Home</a>
+      <article>
+        <h1>My Thoughts</h1>
+        <ul class="thought-list">
+          <li>
+            <a
+              href="#"
+              onclick="showContent('thoughts/Labor Equation.html', 'Labor Equation')"
+              >Labor Equation</a
+            >
+            <div class="thought-description">
+              (2025) Reflections on the evolution of labor in the age of AI
+            </div>
+          </li>
+        </ul>
+      </article>
+    </div>
+    <!-- Full screen content view -->
+    <div id="content-view" class="content-view">
+      <div class="content-header">
+        <a
+          href="#"
+          class="content-back-link"
+          onclick="hideContent(); return false;"
+          >← Back</a
+        >
+        <h2 id="content-title" class="content-title"></h2>
+      </div>
+      <div id="content-body" class="content-body"></div>
+    </div>
+    <script>
+      async function showContent(filePath, title) {
+        try {
+          // Show loading state
+          document.getElementById("content-title").textContent = title;
+          document.getElementById("content-body").innerHTML =
+            "<p>Loading...</p>";
+          // Hide main content and show document view
+          document.getElementById("main-content").classList.add("hidden");
+          document.getElementById("content-view").style.display = "block";
+          // Scroll to top
+          window.scrollTo(0, 0);
+          // Fetch the HTML content
+          const response = await fetch(filePath);
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          const htmlContent = await response.text();
+          // Create a temporary DOM element to extract the body content
+          const tempDiv = document.createElement("div");
+          tempDiv.innerHTML = htmlContent;
+          // Extract the body content (everything inside <body> tag)
+          const bodyContent = tempDiv.querySelector("body");
+          if (bodyContent) {
+            document.getElementById("content-body").innerHTML =
+              bodyContent.innerHTML;
+          } else {
+            // If no body tag, use the entire content
+            document.getElementById("content-body").innerHTML = htmlContent;
+          }
+        } catch (error) {
+          console.error("Error loading content:", error);
+          document.getElementById("content-body").innerHTML =
+            "<p>Error loading content. Please try again later.</p>";
+        }
+      }
+      function hideContent() {
+        // Hide document view and show main content
+        document.getElementById("content-view").style.display = "none";
+        document.getElementById("main-content").classList.remove("hidden");
+        // Scroll to top
+        window.scrollTo(0, 0);
+      }
+      // Close with Escape key
+      document.addEventListener("keydown", function (e) {
+        if (
+          e.key === "Escape" &&
+          document.getElementById("content-view").style.display === "block"
+        ) {
+          hideContent();
+        }
+      });
+    </script>
   </body>
 </html>
